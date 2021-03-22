@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'static_pages#root'
 
+  #methods for both getting a random flashcard and updating the box on a flashcard
   namespace :api, defaults: {format: :json} do
     resources :flashcards, only: [:show]
     resources :flashcards, only: [:update]

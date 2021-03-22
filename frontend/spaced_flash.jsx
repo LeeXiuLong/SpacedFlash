@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
     const root = document.getElementById("root");
 
+    //test functions
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.getRandomFlashcard = getRandomFlashcard;

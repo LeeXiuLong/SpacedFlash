@@ -9,3 +9,5 @@ json.set! :answer_choices do
 end
 json.set! :flashcard_time, @flashcard.time
 json.set! :correct_answer_id, @correct_answer
+json.set! :box_number, @flashcard.box.box_number
+json.set! :total_num_boxes, @num_boxes

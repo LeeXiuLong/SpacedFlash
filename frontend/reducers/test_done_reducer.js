@@ -1,4 +1,4 @@
-import { TEST_DONE } from '../actions/test_done_action';
+import { TEST_DONE, RESET_TEST } from '../actions/test_done_action';
 
 const TestDoneReducer = (state = false, action) => {
     Object.freeze(state)
@@ -7,6 +7,9 @@ const TestDoneReducer = (state = false, action) => {
 
     switch (action.type) {
         case TEST_DONE:
+            newState = action.done
+            return newState;
+        case RESET_TEST:
             newState = action.done
             return newState;
         default:

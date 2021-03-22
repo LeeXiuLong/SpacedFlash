@@ -32,10 +32,10 @@ const Flashcard = (props) => {
         timer = <Timer isFlashcard={true} flashcardId={props.flashcard.id} initialTime={flashTime} timeoutFunction={flashcardTimeout} />
 
         //Get our answer choice ids
-        let answer_choice_ids = Object.keys(props.flashcard.answer_choices)
+        let answerChoiceIds = Object.keys(props.flashcard.answer_choices)
 
         //Map over answer choice ids and make Answer choice components
-        answers = answer_choice_ids.map(key => {
+        answers = answerChoiceIds.map(key => {
 
             let choiceText = props.flashcard.answer_choices[key].answer_text
 
@@ -44,7 +44,10 @@ const Flashcard = (props) => {
                     flashcardID={props.flashcard.id} 
                     correctAnswerID={props.flashcard.correct_answer_id} 
                     thisID={key} 
-                    choiceText={choiceText}/>
+                    choiceText={choiceText}
+                    boxNumber = {props.flashcard.box_number}
+                    totalNumBoxes={props.flashcard.total_num_boxes}
+                    />
             </li>
         })
     }

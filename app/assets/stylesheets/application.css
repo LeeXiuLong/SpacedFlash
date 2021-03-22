@@ -14,10 +14,8 @@
  *= require_self
  */
 
- .green{
-    background-color: green;
- }
-
- .red{
-     background-color: pink;
+ .answers:hover {
+     cursor: pointer;
+     color: white;
+     background-color: black;
  }

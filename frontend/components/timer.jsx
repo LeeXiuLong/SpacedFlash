@@ -6,8 +6,7 @@ const Timer = (props) => {
     //time variable we will manipulate for our timer
     let [time, setTime] = useState(props.initialTime)
 
-    //timer variable that references the initial time we started with
-    let [initialTime, setInitialTime] = useState(props.initialTime)
+    //variable that references the current flashcard
     let [flashcardId, setFlashcardID] = useState(props.isFlashcard ? props.flashcardId : null)
 
     //dispatch hook
@@ -15,21 +14,20 @@ const Timer = (props) => {
 
     //hook to update the time when we get a new card
     useEffect(() => {
+        //if the timer is a flashcard timer
         if(flashcardId){
+            //make sure to update the timer once we get a new flashcard
             if(props.flashcardId !== flashcardId){
                 setTime(props.initialTime);
                 setFlashcardID(props.flashcardId);
             }
         }
-        // if (initialTime !== props.initialTime) {
-        //     setTime(props.initialTime);
-        //     setInitialTime(props.initialTime);
-        // }
 
         //making our timer
         const timerId = setInterval(()=>{
+            //once the timer runs out run the timeout function
             if(time === 0){
-                dispatch(props.timeoutFunction())
+                props.timeoutFunction()
             }
             setTime(time => time - 1)
         },1000)
@@ -38,7 +36,9 @@ const Timer = (props) => {
 
     return(
         <div>
-            <div>{time} seconds left</div>
+            <div>
+                <h3>{time}</h3>
+            </div>
         </div>
     )
 
