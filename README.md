@@ -9,14 +9,16 @@ PostgreSQL
 
 
 Setup:
-In order to run the app on your local machine clone the repo and then navigate to the 'SpacedFlash' directory
+In order to run the app on your local machine clone the repo and then navigate to the 'SpacedFlash' directory. You should also have both Ruby, Ruby on rails and Node installed
 
 Afterwards run the following commands in seperate terminals:
 
-1. "rails db:setup"
-2. "rails db:seed"
-3. "rails s"
-4. "npm start"
+1. bundle install
+2. "rails db:setup"
+3. "rails db:seed"
+4. "rails s"
+5. "npm install"
+6. "npm start"
 
 Before running the above steps feel free to add more seed information to the database!
 
@@ -32,6 +34,8 @@ You will receive a random flashcard when you start the test. When you answer the
 The points are scored based on which box the card is in. If the card is in the hardest box(usually box 1) then you will be given points according to how many total boxes there are currently. For example if there are 4 boxes and you get a question in the hardest box correct you will get 4 points. If you get a question correct in the second hardest box and there are 4 boxes you will get 3 points etc. 
 
 At the end of the test you may view your total points but the points will reset once you reset and take the test again!
+
+Note that when you take the test again the flashcards and the perspective boxes that they have been moved to will persist, this is to support long term learning objectives and utilize the spaced repetition method!
 
 Thank you for taking the time to view interview me for this position. I have truly enjoyed working on this project! 
 

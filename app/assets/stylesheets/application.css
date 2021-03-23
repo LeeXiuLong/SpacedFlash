@@ -16,6 +16,15 @@
 
  .answers:hover {
      cursor: pointer;
-     color: white;
-     background-color: black;
+     border: 1px solid black;
+ }
+
+ .answer-choices{
+     width: fit-content;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .unclickable{
+     pointer-events: none;
  }

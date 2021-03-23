@@ -12,7 +12,8 @@ const Flashcard = (props) => {
     let dispatch = useDispatch();
 
         //flashcard time limit hook from redux store
-    let flashTime = useSelector(state => state.entities.flashcard.flashcard_time)
+    let flashTime = useSelector(state => state.entities.flashcard.flashcard_time);
+    let unclickable = useSelector(state => state.entities.unclickable);
 
     //declare variables for answer and timer
     let answers;
@@ -21,8 +22,8 @@ const Flashcard = (props) => {
 
     //When the flashcard times out get another random flashcard and update this one.
     const flashcardTimeout = () =>{
-        dispatch(getRandomFlashcard(props.flashcard.id))
-        updateFlashcard(props.flashcard.id, false)
+        dispatch(getRandomFlashcard(props.flashcard.id));
+        updateFlashcard(props.flashcard.id, false);
     }
 
     //Wait for our redux store to be accessible
@@ -39,8 +40,8 @@ const Flashcard = (props) => {
 
             let choiceText = props.flashcard.answer_choices[key].answer_text
 
-            return <li key={key}>
-                <Answer 
+            return <li className={`answers ${unclickable}`} key={key}>
+                <Answer
                     flashcardID={props.flashcard.id} 
                     correctAnswerID={props.flashcard.correct_answer_id} 
                     thisID={key} 
@@ -57,7 +58,7 @@ const Flashcard = (props) => {
         <div>
             <h1>{props.flashcard.question}</h1>
             <div>{timer} left on this question</div>
-            <ul>{answers}</ul>
+            <ul className="answer-choices">{answers}</ul>
         </div>
     )
 }

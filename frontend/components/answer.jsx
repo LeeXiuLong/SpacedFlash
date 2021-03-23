@@ -3,6 +3,7 @@ import { useDispatch} from 'react-redux';
 import { getRandomFlashcard} from '../actions/flashcard_actions';
 import { updateFlashcard } from '../util/api_util';
 import { addPoints } from '../actions/points_actions'
+import { makeClickable, makeUnclickable } from '../actions/clickable_actions'
 
 const Answer = (props) => {
 
@@ -10,16 +11,18 @@ const Answer = (props) => {
         //dispatch hook
     const dispatch = useDispatch();
         //hook for our state on our correct answers and color
-    const [correctIndicator, setIndicator] = useState("")
+    const [correctIndicator, setIndicator] = useState("");
+    //const [unclickable, setUnclickable] = useState("");
 
-    //When someone selects an answer wait five seconds then get a new flashcard
+    //When someone selects an answer wait three seconds then get a new flashcard
     useEffect(() => {
         if(correctIndicator !== ""){
             setTimeout(() => {
-                const gotCorrect = correctIndicator === "✓" ? true : false
-                dispatch(getRandomFlashcard(props.flashcardID))
-                updateFlashcard(props.flashcardID, gotCorrect)
-                setIndicator("")
+                const gotCorrect = correctIndicator === "✓" ? true : false;
+                dispatch(getRandomFlashcard(props.flashcardID));
+                updateFlashcard(props.flashcardID, gotCorrect);
+                setIndicator("");
+                dispatch(makeClickable());
             }, 3000)
             
         }
@@ -28,17 +31,18 @@ const Answer = (props) => {
     //put a X or check when someone gets a right or wrong answer and change the color
     //add the points for a correct answer
     const clickAnswer = () => {
+        dispatch(makeUnclickable())
         if (props.correctAnswerID === parseInt(props.thisID)){
-            let pointValue = props.totalNumBoxes - (props.boxNumber - 1)
-            setIndicator("✓")
-            dispatch(addPoints(pointValue))
+            let pointValue = props.totalNumBoxes - (props.boxNumber - 1);
+            setIndicator("✓");
+            dispatch(addPoints(pointValue));
         }else{
-            setIndicator("X")
+            setIndicator("X");
         }
     }
 
     return(
-        <div className="answers" onClick={clickAnswer}>
+        <div onClick={clickAnswer}>
             {props.choiceText}
             {correctIndicator}
         </div>
