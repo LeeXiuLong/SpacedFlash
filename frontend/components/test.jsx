@@ -11,15 +11,15 @@ import Timer from './timer';
 const Test = () => {
 
     //grab flashcard from our redux store
-    const flashcard = useSelector(state => state.entities.flashcard)
-    const points = useSelector(state => state.entities.points)
+    const flashcard = useSelector(state => state.entities.flashcard);
+    const points = useSelector(state => state.entities.points);
 
     //grab a random flashcard when you start the test
     useEffect(()=>{dispatch(getRandomFlashcard(0))}, [])
 
     //render the end of test component
     let testFinished = () => {
-        dispatch(testDone())
+        dispatch(testDone());
     }
 
     return (

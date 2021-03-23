@@ -11,4 +11,4 @@ const entitiesReducer = combineReducers({
     unclickable: unclickableReducer
 })
 
-export default entitiesReducer
+export default entitiesReducer;

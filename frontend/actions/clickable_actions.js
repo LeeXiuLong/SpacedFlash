@@ -1,5 +1,5 @@
-export const MAKE_CLICKABLE = "MAKE_CLICKABLE"
-export const MAKE_UNCLICKABLE = "MAKE_UNCLICKABLE"
+export const MAKE_CLICKABLE = "MAKE_CLICKABLE";
+export const MAKE_UNCLICKABLE = "MAKE_UNCLICKABLE";
 
 //receive a random flashcard and pass it to the redux store
 export const makeClickable = () => {

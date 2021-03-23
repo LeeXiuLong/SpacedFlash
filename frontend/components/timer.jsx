@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux';
 const Timer = (props) => {
 
     //time variable we will manipulate for our timer
-    let [time, setTime] = useState(props.initialTime)
+    let [time, setTime] = useState(props.initialTime);
 
     //variable that references the current flashcard
-    let [flashcardId, setFlashcardID] = useState(props.isFlashcard ? props.flashcardId : null)
+    let [flashcardId, setFlashcardID] = useState(props.isFlashcard ? props.flashcardId : null);
 
     //dispatch hook
     dispatch = useDispatch();
@@ -27,9 +27,9 @@ const Timer = (props) => {
         const timerId = setInterval(()=>{
             //once the timer runs out run the timeout function
             if(time === 0){
-                props.timeoutFunction()
+                props.timeoutFunction();
             }
-            setTime(time => time - 1)
+            setTime(time => time - 1);
         },1000)
         return () => clearInterval(timerId)
     })
@@ -44,4 +44,4 @@ const Timer = (props) => {
 
 }
 
-export default Timer
+export default Timer;

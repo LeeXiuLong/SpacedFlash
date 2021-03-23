@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 import { getRandomFlashcard} from '../actions/flashcard_actions';
 import { updateFlashcard } from '../util/api_util';
-import { addPoints } from '../actions/points_actions'
-import { makeClickable, makeUnclickable } from '../actions/clickable_actions'
+import { addPoints } from '../actions/points_actions';
+import { makeClickable, makeUnclickable } from '../actions/clickable_actions';
 
 const Answer = (props) => {
 
@@ -14,7 +14,10 @@ const Answer = (props) => {
     const [correctIndicator, setIndicator] = useState("");
     //const [unclickable, setUnclickable] = useState("");
 
-    //When someone selects an answer wait three seconds then get a new flashcard
+    //When someone selects an answer
+        //stop them from submitting any other answers
+        //update the flashcard selected
+        // wait three seconds then get a new flashcard
     useEffect(() => {
         if(correctIndicator !== ""){
             setTimeout(() => {

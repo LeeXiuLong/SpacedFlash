@@ -1,7 +1,7 @@
 import { MAKE_CLICKABLE, MAKE_UNCLICKABLE } from '../actions/clickable_actions'
 
 const UnclickableReducer = (state = "", action) => {
-    Object.freeze(state)
+    Object.freeze(state);
 
     let newState;
 

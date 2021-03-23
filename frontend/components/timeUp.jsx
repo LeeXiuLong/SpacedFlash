@@ -10,12 +10,12 @@ const TimeUp = () => {
 
     let dispatch = useDispatch();
 
-    let points = useSelector(state => state.entities.points)
+    let points = useSelector(state => state.entities.points);
 
     //use this function to restart the test!
     let testReset = () => {
-        dispatch(resetTest())
-        dispatch(resetPoints())
+        dispatch(resetTest());
+        dispatch(resetPoints());
     }
 
     return(
@@ -29,4 +29,4 @@ const TimeUp = () => {
     )
 }
 
-export default TimeUp
+export default TimeUp;

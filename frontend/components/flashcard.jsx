@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRandomFlashcard } from '../actions/flashcard_actions';
-import { updateFlashcard } from '../util/api_util'
-import Answer from './answer'
-import Timer from './timer'
+import { updateFlashcard } from '../util/api_util';
+import Answer from './answer';
+import Timer from './timer';
 
 const Flashcard = (props) => {
 
@@ -33,12 +33,12 @@ const Flashcard = (props) => {
         timer = <Timer isFlashcard={true} flashcardId={props.flashcard.id} initialTime={flashTime} timeoutFunction={flashcardTimeout} />
 
         //Get our answer choice ids
-        let answerChoiceIds = Object.keys(props.flashcard.answer_choices)
+        let answerChoiceIds = Object.keys(props.flashcard.answer_choices);
 
         //Map over answer choice ids and make Answer choice components
         answers = answerChoiceIds.map(key => {
 
-            let choiceText = props.flashcard.answer_choices[key].answer_text
+            let choiceText = props.flashcard.answer_choices[key].answer_text;
 
             return <li className={`answers ${unclickable}`} key={key}>
                 <Answer
