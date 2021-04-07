@@ -31,6 +31,8 @@ const Timer = (props) => {
             }
             setTime(time => time - 1);
         },1000)
+        // use clear interval when the component un-renders 
+        //so that we may not have multiple setIntervals on the re-render
         return () => clearInterval(timerId)
     })
 
