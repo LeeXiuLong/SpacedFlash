@@ -8,6 +8,7 @@ Ruby on Rails
 PostgreSQL
 
 Context for Canix: This was a project created for an education company that wanted me to implement a front and backend that exemplified the uses of a spaced repetition methodology of learning.
+https://en.wikipedia.org/wiki/Spaced_repetition
 
 
 Setup:
@@ -28,7 +29,6 @@ This should run webpack and spin up the rails server and you should be able to o
 http://localhost:3000/#/
 
 Premise: Create a testing interface with flashcards that helps implement the Spaced Repetition methodology. 
-https://en.wikipedia.org/wiki/Spaced_repetition
 
 Design:
 
