@@ -1,5 +1,5 @@
 Welcome to my(Jourdan Ooi's) version of the Spaced Repetition Flashcard app!
-
+more comments
 I have used the following technologies in the App:
 React JS
 Redux
