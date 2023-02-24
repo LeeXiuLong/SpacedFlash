@@ -15,6 +15,8 @@ const Test = () => {
     const points = useSelector(state => state.entities.points);
 
     //grab a random flashcard when you start the test
+    //empty dependency array is similar to componentDidMount
+    //empty dependency array will make sure they function inside of useEffect will only run once.
     useEffect(()=>{dispatch(getRandomFlashcard(0))}, [])
 
     //render the end of test component
