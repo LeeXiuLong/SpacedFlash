@@ -4,9 +4,9 @@
 
 
 describe Flashcard do 
-    box1 = FactoryBot.build(:box, box_number: 1)
-    box2 = FactoryBot.build(:box, box_number: 2)
-    box3 = FactoryBot.build(:box, box_number: 3)
+    box1 = FactoryBot.build_stubbed(:box, box_number: 1)
+    box2 = FactoryBot.build_stubbed(:box, box_number: 2)
+    box3 = FactoryBot.build_stubbed(:box, box_number: 3)
 
     subject(:flashcard) {FactoryBot.build(:flashcard, box: box2)}
 
@@ -23,7 +23,6 @@ describe Flashcard do
     context 'methods' do
         describe 'moveToFirstBox' do 
             it 'should move the card to the first box' do
-                byebug
                 subject.moveToFirstBox()
                 expect(subject.box.box_number).to eq(1)
             end
